@@ -1,109 +1,282 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta name="robots" content="noindex">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base target="_blank">
 <title>Tarek Mokhtari</title>
-<meta name="description" content="Data scientist. J'explore la sécurité de l'IA, la pédagogie et les protocoles de travail.">
-<link rel="icon" href="data:,">
+<meta name="description" content="Ingénieur en IA et pianiste. Sécurité de l'IA, piano, jeu de go.">
+<meta property="og:title" content="Tarek Mokhtari">
+<meta property="og:description" content="Ingénieur en IA et pianiste. Sécurité de l'IA, piano, jeu de go.">
+<meta property="og:image" content="https://tarek-mokhtari.github.io/portrait.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232f6b4f%22/><text x=%2250%22 y=%2253%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-family=%22Georgia, serif%22 font-size=%2246%22 letter-spacing=%221%22 fill=%22%23fbfaf6%22>TM</text></svg>">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --muted: #6b6b6b;
-    --bg: #fdfcfa;
-    --rule: #e6e2dc;
-    --link: #1a1a1a;
+    --bg: #fbfaf6;
+    --text: #1f2420;
+    --muted: #72776f;
+    --accent: #2f6b4f;
+    --rule: #e3e2db;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --ink:#e8e6e3; --muted:#9a9691; --bg:#151513; --rule:#2e2c29; --link:#e8e6e3; }
+    :root {
+      --bg: #181b19;
+      --text: #e6e4dc;
+      --muted: #979c93;
+      --accent: #86c4a3;
+      --rule: #2c312d;
+    }
   }
+
   * { box-sizing: border-box; }
+
   body {
     margin: 0;
     background: var(--bg);
-    color: var(--ink);
-    font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
-    font-size: 18px;
+    color: var(--text);
+    font-family: Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-size: 1.1875rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
+
   main {
-    max-width: 34rem;
+    max-width: 39rem;
     margin: 0 auto;
-    padding: 5rem 1.5rem 6rem;
+    padding: 4.5rem 1.375rem 3rem;
   }
-  .portrait {
-    width: 92px; height: 92px;
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    transition: text-decoration-color 0.15s ease;
+  }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 1.375rem;
+    margin-bottom: 2.25rem;
+  }
+  header img {
+    width: 5.5rem;
+    height: 5.5rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1.75rem;
-    display: block;
+    object-position: center 20%;
+    flex-shrink: 0;
   }
   h1 {
-    font-size: 1.9rem;
-    line-height: 1.2;
-    margin: 0 0 .35rem;
-    letter-spacing: -0.015em;
-  }
-  .tagline {
-    color: var(--muted);
-    font-style: italic;
-    margin: 0 0 2.25rem;
-  }
-  h2 {
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
+    font-size: 2rem;
     font-weight: 600;
-    color: var(--muted);
-    margin: 3rem 0 1rem;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid var(--rule);
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.01em;
   }
-  p { margin: 0 0 1.15rem; }
-  a { color: var(--link); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
-  a:hover { text-decoration-color: currentColor; }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { margin-bottom: .85rem; display: flex; gap: .9rem; align-items: baseline; }
-  .year { color: var(--muted); font-size: .85rem; font-variant-numeric: tabular-nums; flex: 0 0 2.6rem; }
-  .note { color: var(--muted); font-size: .92rem; }
-  footer { margin-top: 4rem; color: var(--muted); font-size: .92rem; }
+  .tagline { margin: 0.375rem 0 0; }
+
+  .tagline, h2, footer, .note { color: var(--muted); }
+  .tagline, footer { font-size: 1.0625rem; }
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 2.5rem 0 0.875rem;
+  }
+
+  p { margin: 0 0 1.125rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { margin: 0 0 0.625rem; }
+
+  /* Vidéos : grille de vignettes */
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 1rem;
+  }
+  .videos a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .videos img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 4px;
+    background: var(--rule);
+  }
+  .videos p {
+    margin: 0.45rem 0 0;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .videos a:hover p { color: var(--text); }
+  .videos a:focus-visible img { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* Écrits : année en marge */
+  .writing li {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .year {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    flex-shrink: 0;
+    width: 2.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Paliers : escalier des niveaux de compréhension (désactivé par défaut, voir plus bas) */
+  .ladder { margin: 0.5rem 0 1.5rem; }
+  .ladder li {
+    position: relative;
+    margin: 0;
+    padding: 0.55rem 0 0.55rem 1.5rem;
+    border-left: 2px solid var(--rule);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .ladder li::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 1.05rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rule);
+  }
+  .ladder li:last-child::before { background: var(--accent); }
+  .ladder li:last-child { border-left-color: var(--accent); }
+  .ladder strong { font-weight: 600; }
+  .ladder span { color: var(--muted); }
+
+  footer { margin-top: 2.5rem; }
+
+  @media (max-width: 600px) {
+    .videos { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    main { padding-top: 3rem; }
+    header { flex-direction: column; align-items: flex-start; gap: 1.125rem; }
+    h1 { font-size: 1.75rem; }
+    body { font-size: 1.125rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a { transition: none; }
+  }
 </style>
 </head>
 <body>
 <main>
+  <header>
+    <!-- Ajouter portrait.jpg à la racine du dépôt, puis décommenter :
+    <img src="portrait.jpg" alt="Tarek Mokhtari">
+    -->
+    <div>
+      <h1>Tarek Mokhtari</h1>
+      <p class="tagline">Ingénieur en IA, pianiste</p>
+    </div>
+  </header>
 
-  <img class="portrait" src="portrait_tarek.jpg" alt="Tarek Mokhtari">
+  <p>Hello ! Je suis ingénieur en IA et pianiste.</p>
 
-  <h1>Tarek Mokhtari</h1>
-  <p class="tagline">Comprendre les systèmes, en extraire la structure, la transmettre.</p>
+  <p>Je crée cette page pour y déposer mon travail sur la sécurité de l'IA. Les gens ne butent pas tous sur la même marche : je veux repérer où chacun en est, ce qui le bloque, et lui donner de quoi passer à la suivante, jusqu'à l'action collective.</p>
 
-  <p>Data scientist. Je travaille aujourd'hui sur la sécurité des systèmes d'IA : comment
-  modéliser les scénarios de risque, et comment rendre ces modèles compréhensibles
-  à des gens qui ne sont pas du domaine.</p>
+  <p>Ingénieur des Mines, master recherche en maths appliquées et théorie de l'information. Dix ans entre sûreté nucléaire, énergies renouvelables et <a href="https://www.linkedin.com/in/TON-PROFIL/">conseil en IA</a>.</p>
 
-  <p>Avant ça : arrivé du Maroc en France pour mes études d'ingénieur. Trente ans de piano,
-  et des concerts-conférences où je commente les pièces que je joue. Formateur à la
-  Fédération française de go et conférencier sur ce que ce jeu apprend de la stratégie,
-  de la décision et de l'erreur. J'aime les objets qui servent à penser autre chose qu'eux-mêmes.</p>
+  <p>Je joue du piano depuis plus de trente ans, commencé au conservatoire au Maroc et jamais arrêté : le piano à queue de la chapelle en prépa, le droit de la salle de bricolage aux Mines. Je publie mes enregistrements sur <a href="https://www.youtube.com/@TA-CHAINE">YouTube</a>, où j'ai ajouté un format pédagogique avec les notes qui défilent pendant que je joue lentement. Je donne depuis peu des concerts privés, entrecoupés de textes.</p>
 
-  <h2>Ecrits</h2>
-  <ul>
-    <li><span class="year">2026</span><a href="ecrits/liberte-process-figes.html">La liberté dans les process figés</a></li>
-  </ul>
+  <p>Ce qui m'amuse le plus : repérer un motif dans une pratique et le transporter dans une autre. Le go (j'ai été formateur à la Fédération française), le chaos, la théorie de l'information sont mes terrains préférés pour ça.</p>
 
-  <h2>Travaux</h2>
-  <ul>
-    <li><span class="year">2026</span><span class="note">Modèle interactif de scénarios (en cours)</span></li>
-  </ul>
+  <section aria-labelledby="videos">
+    <h2 id="videos">En vidéo</h2>
+    <!-- Pour chaque vignette : remplacer ID_VIDEO par ce qui suit "v=" dans l'URL YouTube.
+         La miniature est fournie par YouTube, rien à uploader. -->
+    <div class="videos">
+      <a href="https://youtu.be/IPbyuPI2i5pk">
+        <img src="https://img.youtube.com/vi/PbyuPI2i5pk/hqdefault.jpg" alt="">
+        <p>Un piano dans une forêt</p>
+        <p>2025</p>
+      </a>
+      <a href="https://youtu.be/vxCGazfwgFY">
+        <img src="https://img.youtube.com/vi/vxCGazfwgFY/hqdefault.jpg" alt="">
+        <p>Medellin de Sofiane Pamart</p>
+        <p>2024</p>
+      </a>
+      <a href="https://youtu.be/qoUwftRNz3k">
+        <img src="https://img.youtube.com/vi/qoUwftRNz3k/hqdefault.jpg" alt="">
+        <p>Jouer en maison de retraite</p>
+        <p>2015</p>
+      </a>
+      <a href="https://youtu.be/o09ZrpB1YaI">
+        <img src="https://img.youtube.com/vi/o09ZrpB1YaI/hqdefault.jpg" alt="">
+        <p>Confère sur le jeu de Go</p>
+        <p>2019</p>
+      </a>
+      <a href="https://youtu.be/q8hhXgI3MyM">
+        <img src="https://img.youtube.com/vi/q8hhXgI3MyM/hqdefault.jpg" alt="">
+        <p>Le mécanisme d'attention</p>
+        <p>2025</p>
+      </a>
+      <a href="https://youtu.be/DAJh40itJp4">
+        <img src="https://img.youtube.com/vi/DAJh40itJp4/hqdefault.jpg" alt="">
+        <p>Pourquoi copier, c'est bien</p>
+        <p>2020</p>
+      </a>
+    </div>
+  </section>
 
-  <h2>Contact</h2>
-  <p>Le mieux est de m'écrire : <a href="mailto:tarekmokhtari@gmail.com">tarekmokhtari@gmail.com</a>.
-  Je suis aussi sur <a href="https://www.linkedin.com/in/tarekmokhtari/">LinkedIn</a>
+  <section aria-labelledby="writing">
+    <h2 id="writing">Écrits</h2>
+    <!-- Escalier des paliers : à activer une fois le premier article publié,
+         en remplaçant les libellés par les vrais paliers.
+    <ul class="ladder">
+      <li><strong>Palier 1</strong> <span>ce que la personne croit, ce qui la bloque</span></li>
+      <li><strong>Palier 2</strong> <span>…</span></li>
+      <li><strong>Palier 3</strong> <span>…</span></li>
+      <li><strong>Agir ensemble</strong> <span>à développer</span></li>
+    </ul>
+    -->
+    <ul class="writing">
+      <!-- Dupliquer la ligne pour chaque texte. L'année ne se répète pas d'une ligne à l'autre. -->
+      <li><span class="year">2026</span><a href="ecrits/PREMIER-ARTICLE.html">TITRE DU PREMIER ARTICLE</a></li>
+    </ul>
+  </section>
 
-  <footer>Dernière mise à jour : septembre 2026.</footer>
+  <section aria-labelledby="elsewhere">
+    <h2 id="elsewhere">Ailleurs</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/@akterus">YouTube</a><span class="note"> : piano, de Chopin à Sofiane Pamart</span></li>
+      <!-- <li><a href="https://github.com/tarek-mokhtari">GitHub</a><span class="note"> : projets et expériences</span></li> -->
+      <li><a href="https://www.linkedin.com/in/tarekmokhtari/">LinkedIn</a><span class="note"> : parcours en détail</span></li>
+    </ul>
+  </section>
 
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p>Le plus simple est un <a href="mailto:tarekmokhtari@gmail.com">e-mail</a>.</p>
+  </section>
+
+  <footer>
+    <p>À bientôt.</p>
+  </footer>
 </main>
 </body>
 </html>
